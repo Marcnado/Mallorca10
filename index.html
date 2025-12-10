@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mallorca10 Golf Society</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1e2a5e;
+            --navy-light: #2a3a7a;
+            --navy-dark: #151e45;
+            --silver: #c0c5d0;
+            --silver-light: #e8eaef;
+            --platinum: #f0f2f5;
+            --gold: #c9a962;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--navy);
+            color: var(--silver-light);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy) 100%);
+        }
+
+        .site-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: var(--silver-light);
+            margin-bottom: 0.25rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .site-title .number {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.05em;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--silver);
+            opacity: 0.7;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            padding: 0 1rem;
+            margin-top: 2rem;
+            animation: fadeIn 0.8s ease-out 0.5s both;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--silver);
+            border-right: none;
+            color: var(--silver);
+            padding: 0.8rem 2rem;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:first-child {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .nav-btn:last-child {
+            border-right: 1px solid var(--silver);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .nav-btn.active {
+            background: var(--silver);
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--silver-light);
+            letter-spacing: 0.05em;
+        }
+
+        /* Home Section */
+        .home-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .home-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .home-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+            font-style: italic;
+        }
+
+        .home-description {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .home-description p {
+            margin-bottom: 1rem;
+            color: var(--silver-light);
+            line-height: 1.7;
+        }
+
+        .home-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .home-description strong {
+            color: var(--white);
+        }
+
+        .home-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .home-feature {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 1.25rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        .home-feature-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .home-feature h3 {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--silver-light);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .home-feature p {
+            font-size: 0.8rem;
+            color: var(--silver);
+            line-height: 1.5;
+        }
+
+        .home-cta {
+            text-align: center;
+            padding: 1.25rem;
+            background: rgba(201, 169, 98, 0.08);
+            border-radius: 8px;
+            border: 1px solid rgba(201, 169, 98, 0.2);
+        }
+
+        .home-cta p {
+            color: var(--silver-light);
+            margin: 0;
+        }
+
+        .home-cta strong {
+            color: var(--gold);
+        }
+
+        /* Standings Toggle */
+        .standings-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--silver);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .toggle-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .toggle-btn.active {
+            color: var(--white);
+        }
+
+        .toggle-btn.active::after {
+            width: 100%;
+        }
+
+        /* Tables */
+        .table-container {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem 0.75rem;
+            text-align: left;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--silver);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        td {
+            padding: 0.9rem 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .rank {
+            font-weight: 700;
+            color: var(--silver);
+            width: 50px;
+        }
+
+        .rank-1 { color: var(--gold); }
+        .rank-2 { color: #b8c5d6; }
+        .rank-3 { color: #cd9b6a; }
+
+        .player-name {
+            font-weight: 400;
+        }
+
+        .stat {
+            text-align: center;
+            color: var(--silver);
+            font-weight: 300;
+        }
+
+        .avg {
+            font-weight: 700;
+            color: var(--silver-light);
+        }
+
+        /* Handicap Grid */
+        .handicap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .handicap-item {
+            background: var(--navy);
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .handicap-item:hover {
+            background: var(--navy-light);
+        }
+
+        .handicap-name {
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+
+        .handicap-value {
+            font-weight: 700;
+            color: var(--silver);
+            font-size: 0.9rem;
+        }
+
+        /* Rounds */
+        .round-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .round-header {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .round-header:hover {
+            background: rgba(0,0,0,0.3);
+        }
+
+        .round-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .round-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--silver-light);
+        }
+
+        .round-details {
+            font-size: 0.85rem;
+            color: var(--silver);
+        }
+
+        .round-course {
+            font-weight: 700;
+        }
+
+        .round-date {
+            opacity: 0.7;
+        }
+
+        .round-toggle {
+            color: var(--silver);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .round-card.open .round-toggle {
+            transform: rotate(180deg);
+        }
+
+        .round-content {
+            display: none;
+            padding: 0;
+        }
+
+        .round-card.open .round-content {
+            display: block;
+        }
+
+        .round-content table th:first-child,
+        .round-content table td:first-child {
+            padding-left: 1.25rem;
+        }
+
+        /* Winner highlight */
+        .winner {
+            background: rgba(201, 169, 98, 0.08);
+        }
+
+        .winner td {
+            color: var(--gold);
+        }
+
+        /* Sponsors */
+        .header-sponsors {
+            margin-top: 1.25rem;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .header-sponsors-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--silver);
+            opacity: 0.5;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-sponsors-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-sponsors-divider {
+            color: var(--silver);
+            opacity: 0.3;
+            font-size: 0.9rem;
+        }
+
+        .header-sponsor-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            opacity: 0.65;
+            transition: opacity 0.3s ease;
+        }
+
+        .header-sponsor-link:hover {
+            opacity: 1;
+        }
+
+        .bestboats-logo {
+            height: 38px;
+            width: auto;
+        }
+
+        .header-sponsor-logo {
+            height: 22px;
+            width: auto;
+            filter: brightness(0) invert(0.85);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 2rem;
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: var(--silver);
+            opacity: 0.5;
+            letter-spacing: 0.1em;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .header {
+                padding: 2rem 1rem 1.5rem;
+            }
+
+            .logo {
+                max-width: 140px;
+            }
+
+            .tagline {
+                font-size: 0.9rem;
+                letter-spacing: 0.2em;
+            }
+
+            .nav-btn {
+                padding: 0.7rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .home-tagline {
+                font-size: 1rem;
+            }
+
+            .home-features {
+                grid-template-columns: 1fr;
+            }
+
+            .home-feature-icon {
+                font-size: 1.3rem;
+            }
+
+            th, td {
+                padding: 0.7rem 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            th {
+                font-size: 0.65rem;
+            }
+
+            .handicap-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .round-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+
+            .round-number {
+                font-size: 1.2rem;
+            }
+
+            .round-details {
+                font-size: 0.8rem;
+            }
+
+            .header-sponsors-label {
+                font-size: 0.6rem;
+            }
+
+            .bestboats-logo {
+                height: 32px;
+            }
+
+            .header-sponsor-logo {
+                height: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">Mallorca<span class="number">10</span></h1>
+        <p class="tagline">Road to Son Gual</p>
+        
+        <!-- Sponsors -->
+        <div class="header-sponsors">
+            <span class="header-sponsors-label">Supported by</span>
+            <div class="header-sponsors-logos">
+                <a href="https://bestboats-yachtcharter.com/en/" target="_blank" rel="noopener" class="header-sponsor-link" title="Best Boats Yacht Charter">
+                    <svg class="bestboats-logo" viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg">
+                        <!-- BEST BOATS text -->
+                        <text x="90" y="18" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="14" fill="#e8eaef" letter-spacing="1">BEST</text>
+                        <!-- Anchor icon -->
+                        <g transform="translate(90, 25)">
+                            <circle cx="0" cy="0" r="10" fill="none" stroke="#c9a962" stroke-width="2" stroke-dasharray="3,2"/>
+                            <path d="M0,-6 L0,6 M-4,4 Q0,8 4,4 M-2,-6 L2,-6 M0,-8 L0,-6" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        </g>
+                        <text x="66" y="18" text-anchor="end" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="14" fill="#e8eaef" letter-spacing="1">BEST</text>
+                        <text x="114" y="18" text-anchor="start" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="14" fill="#e8eaef" letter-spacing="1">BOATS</text>
+                        <!-- YACHT CHARTER text -->
+                        <text x="90" y="46" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="9" fill="#c9a962" letter-spacing="2">YACHT CHARTER</text>
+                    </svg>
+                </a>
+                <span class="header-sponsors-divider">·</span>
+                <a href="https://www.vicegolf.de/" target="_blank" rel="noopener" class="header-sponsor-link" title="Vice Golf">
+                    <img src="https://cdn.shopify.com/s/files/1/0832/9235/6897/files/vice_logo.svg?v=1709644392" alt="Vice Golf" class="header-sponsor-logo">
+                </a>
+            </div>
+        </div>
+        
+        <nav class="nav">
+            <button class="nav-btn active" data-section="home">Home</button>
+            <button class="nav-btn" data-section="standings">Standings</button>
+            <button class="nav-btn" data-section="handicaps">Handicaps</button>
+            <button class="nav-btn" data-section="rounds">Rounds</button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <h2 class="section-title">Welcome to Mallorca10</h2>
+            
+            <div class="home-content">
+                <div class="home-intro">
+                    <p class="home-tagline">A Private Golf Society on the Beautiful Island of Mallorca</p>
+                </div>
+                
+                <div class="home-description">
+                    <p>Mallorca10 is an exclusive golf society, based at Son Gual, bringing together passionate golfers for competitive yet friendly rounds.</p>
+                    
+                    <p>The league follows the <strong>CONGU handicap system</strong>, ensuring fair competition across all skill levels. Each player's best 10 rounds count towards the final standings, rewarding consistency and improvement throughout the season.</p>
+                </div>
+                
+                <div class="home-features">
+                    <div class="home-feature">
+                        <span class="home-feature-icon">⛳</span>
+                        <h3>Best 10 Rounds</h3>
+                        <p>Only your top 10 scores count, so every round is an opportunity to improve your standing.</p>
+                    </div>
+                    <div class="home-feature">
+                        <span class="home-feature-icon">📊</span>
+                        <h3>Net & Gross Rankings</h3>
+                        <p>Compete in both handicap-adjusted net and scratch gross categories.</p>
+                    </div>
+                    <div class="home-feature">
+                        <span class="home-feature-icon">🏆</span>
+                        <h3>Road to Son Gual</h3>
+                        <p>Join us on our journey playing the magnificent Son Gual course throughout the season.</p>
+                    </div>
+                </div>
+                
+                <div class="home-cta">
+                    <p>Check out the <strong>Standings</strong> to see the current league positions, view all player <strong>Handicaps</strong>, or browse detailed <strong>Round Results</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Standings Section -->
+        <section id="standings" class="section">
+            <h2 class="section-title">League Standings</h2>
+            
+            <div class="standings-toggle">
+                <button class="toggle-btn active" data-type="net">Net</button>
+                <button class="toggle-btn" data-type="gross">Gross</button>
+            </div>
+            
+            <div class="table-container">
+                <table id="standings-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th class="stat">Rounds</th>
+                            <th class="stat">Total</th>
+                            <th class="stat">Avg</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Handicaps Section -->
+        <section id="handicaps" class="section">
+            <h2 class="section-title">Handicap Index</h2>
+            <div id="handicap-grid" class="handicap-grid"></div>
+        </section>
+
+        <!-- Rounds Section -->
+        <section id="rounds" class="section">
+            <h2 class="section-title">Round Results</h2>
+            <div id="rounds-container"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">Mallorca10 Golf Society &middot; Best 10 Rounds &middot; CONGU Handicap System</p>
+    </footer>
+
+    <script>
+        // Data
+        const data = {
+            "netStandings": [
+                {"name": "Patrick Woolmington", "rounds": 2, "total": 144, "avg": 72.0, "rank": 1},
+                {"name": "Michael Price", "rounds": 3, "total": 219, "avg": 73.0, "rank": 2},
+                {"name": "Thomas Grigoleit", "rounds": 4, "total": 293, "avg": 73.2, "rank": 3},
+                {"name": "Vadim Shmal", "rounds": 2, "total": 147, "avg": 73.5, "rank": 4},
+                {"name": "James Hannington", "rounds": 3, "total": 223, "avg": 74.3, "rank": 5},
+                {"name": "Torsten Nitsche", "rounds": 4, "total": 302, "avg": 75.5, "rank": 6},
+                {"name": "Mathias Plank", "rounds": 1, "total": 77, "avg": 77.0, "rank": 7},
+                {"name": "Joachim Bongard", "rounds": 4, "total": 309, "avg": 77.2, "rank": 8},
+                {"name": "Markus Diesing", "rounds": 2, "total": 155, "avg": 77.5, "rank": 9},
+                {"name": "Marc Daubach", "rounds": 4, "total": 312, "avg": 78.0, "rank": 10},
+                {"name": "Ralf Schipper", "rounds": 1, "total": 79, "avg": 79.0, "rank": 11},
+                {"name": "Tim Holroyd", "rounds": 3, "total": 238, "avg": 79.3, "rank": 12},
+                {"name": "Kerim Kaskal", "rounds": 2, "total": 160, "avg": 80.0, "rank": 13},
+                {"name": "Andreas Schlawin", "rounds": 2, "total": 162, "avg": 81.0, "rank": 14},
+                {"name": "Chris Hunt", "rounds": 2, "total": 163, "avg": 81.5, "rank": 15},
+                {"name": "Carsten Piwek", "rounds": 4, "total": 327, "avg": 81.8, "rank": 16},
+                {"name": "Chris Bauer", "rounds": 2, "total": 165, "avg": 82.5, "rank": 17},
+                {"name": "Dean Teuber", "rounds": 2, "total": 165, "avg": 82.5, "rank": 18},
+                {"name": "Mattias Liss-Daniels", "rounds": 1, "total": 84, "avg": 84.0, "rank": 19},
+                {"name": "Dan Wise", "rounds": 1, "total": 85, "avg": 85.0, "rank": 20}
+            ],
+            "grossStandings": [
+                {"name": "Patrick Woolmington", "rounds": 2, "total": 152, "avg": 76.0, "rank": 1},
+                {"name": "Michael Price", "rounds": 3, "total": 231, "avg": 77.0, "rank": 2},
+                {"name": "James Hannington", "rounds": 3, "total": 232, "avg": 77.3, "rank": 3},
+                {"name": "Vadim Shmal", "rounds": 2, "total": 157, "avg": 78.5, "rank": 4},
+                {"name": "Tim Holroyd", "rounds": 3, "total": 238, "avg": 79.3, "rank": 5},
+                {"name": "Thomas Grigoleit", "rounds": 4, "total": 337, "avg": 84.2, "rank": 6},
+                {"name": "Mattias Liss-Daniels", "rounds": 1, "total": 85, "avg": 85.0, "rank": 7},
+                {"name": "Joachim Bongard", "rounds": 4, "total": 353, "avg": 88.2, "rank": 8},
+                {"name": "Torsten Nitsche", "rounds": 4, "total": 354, "avg": 88.5, "rank": 9},
+                {"name": "Chris Hunt", "rounds": 2, "total": 177, "avg": 88.5, "rank": 10},
+                {"name": "Markus Diesing", "rounds": 2, "total": 179, "avg": 89.5, "rank": 11},
+                {"name": "Mathias Plank", "rounds": 1, "total": 92, "avg": 92.0, "rank": 12},
+                {"name": "Ralf Schipper", "rounds": 1, "total": 92, "avg": 92.0, "rank": 13},
+                {"name": "Marc Daubach", "rounds": 4, "total": 372, "avg": 93.0, "rank": 14},
+                {"name": "Carsten Piwek", "rounds": 4, "total": 375, "avg": 93.8, "rank": 15},
+                {"name": "Dean Teuber", "rounds": 2, "total": 189, "avg": 94.5, "rank": 16},
+                {"name": "Kerim Kaskal", "rounds": 2, "total": 192, "avg": 96.0, "rank": 17},
+                {"name": "Andreas Schlawin", "rounds": 2, "total": 194, "avg": 97.0, "rank": 18},
+                {"name": "Chris Bauer", "rounds": 2, "total": 197, "avg": 98.5, "rank": 19},
+                {"name": "Dan Wise", "rounds": 1, "total": 100, "avg": 100.0, "rank": 20}
+            ],
+            "handicaps": [
+                {"name": "Tim Holroyd", "hcp": 0.0},
+                {"name": "Mattias Liss-Daniels", "hcp": 0.9},
+                {"name": "James Hannington", "hcp": 2.0},
+                {"name": "Patrick Woolmington", "hcp": 2.9},
+                {"name": "Michael Price", "hcp": 2.9},
+                {"name": "Vadim Shmal", "hcp": 4.3},
+                {"name": "Ady Dutton", "hcp": 4.7},
+                {"name": "Chris Hunt", "hcp": 5.5},
+                {"name": "Gavin Johnson", "hcp": 7.9},
+                {"name": "Fredric Blomberg", "hcp": 8.5},
+                {"name": "Gunnar Herzbach", "hcp": 9.2},
+                {"name": "Thomas Grigoleit", "hcp": 9.3},
+                {"name": "Gary Ledwidge", "hcp": 9.3},
+                {"name": "Joachim Bongard", "hcp": 9.6},
+                {"name": "Markus Diesing", "hcp": 10.0},
+                {"name": "Dean Teuber", "hcp": 10.0},
+                {"name": "Carsten Piwek", "hcp": 10.4},
+                {"name": "Torsten Nitsche", "hcp": 10.9},
+                {"name": "Ralf Schipper", "hcp": 10.9},
+                {"name": "Serge Raicher", "hcp": 12.5},
+                {"name": "Dan Wise", "hcp": 12.5},
+                {"name": "Marc Daubach", "hcp": 12.8},
+                {"name": "Mathias Plank", "hcp": 13.0},
+                {"name": "Kerim Kaskal", "hcp": 15.0},
+                {"name": "Andreas Schlawin", "hcp": 15.6},
+                {"name": "Chris Bauer", "hcp": 20.0}
+            ],
+            "rounds": {
+                "1": {"date": "19/09/2025", "course": "Son Gual", "players": [
+                    {"name": "Marc Daubach", "gross": 84, "net": 69},
+                    {"name": "Patrick Woolmington", "gross": 74, "net": 70},
+                    {"name": "James Hannington", "gross": 75, "net": 72},
+                    {"name": "Thomas Grigoleit", "gross": 83, "net": 72},
+                    {"name": "Carsten Piwek", "gross": 86, "net": 74},
+                    {"name": "Mathias Plank", "gross": 92, "net": 77},
+                    {"name": "Torsten Nitsche", "gross": 92, "net": 79},
+                    {"name": "Kerim Kaskal", "gross": 97, "net": 81},
+                    {"name": "Tim Holroyd", "gross": 82, "net": 82}
+                ]},
+                "2": {"date": "03/10/2025", "course": "Son Gual", "players": [
+                    {"name": "Vadim Shmal", "gross": 78, "net": 73},
+                    {"name": "Marc Daubach", "gross": 89, "net": 74},
+                    {"name": "Franco Bonello", "gross": 86, "net": 81},
+                    {"name": "Joachim Bongard", "gross": 92, "net": 81},
+                    {"name": "Andreas Schlawin", "gross": 103, "net": 87},
+                    {"name": "Carsten Piwek", "gross": 99, "net": 87}
+                ]},
+                "3": {"date": "17/10/2025", "course": "Son Gual", "players": [
+                    {"name": "Michael Price", "gross": 78, "net": 74},
+                    {"name": "Vadim Shmal", "gross": 79, "net": 74},
+                    {"name": "Patrick Woolmington", "gross": 78, "net": 74},
+                    {"name": "Torsten Nitsche", "gross": 89, "net": 76},
+                    {"name": "Thomas Grigoleit", "gross": 87, "net": 76},
+                    {"name": "Tim Holroyd", "gross": 77, "net": 77},
+                    {"name": "James Hannington", "gross": 81, "net": 78},
+                    {"name": "Joachim Bongard", "gross": 90, "net": 79},
+                    {"name": "Kerim Kaskal", "gross": 95, "net": 79},
+                    {"name": "Chris Hunt", "gross": 90, "net": 83},
+                    {"name": "Carsten Piwek", "gross": 95, "net": 83},
+                    {"name": "Jochen Döhring", "gross": 100, "net": 84},
+                    {"name": "Mattias Liss-Daniels", "gross": 85, "net": 84},
+                    {"name": "Marc Daubach", "gross": 102, "net": 87}
+                ]},
+                "4": {"date": "14/11/2025", "course": "Son Gual", "players": [
+                    {"name": "Torsten Nitsche", "gross": 83, "net": 70},
+                    {"name": "James Hannington", "gross": 76, "net": 73},
+                    {"name": "Andreas Pelzer", "gross": 90, "net": 74},
+                    {"name": "Michael Price", "gross": 78, "net": 74},
+                    {"name": "Thomas Grigoleit", "gross": 85, "net": 74},
+                    {"name": "Joachim Bongard", "gross": 90, "net": 79},
+                    {"name": "Markus Diesing", "gross": 93, "net": 81},
+                    {"name": "Chris Bauer", "gross": 105, "net": 89},
+                    {"name": "Dean Teuber", "gross": 101, "net": 89}
+                ]},
+                "5": {"date": "28/11/2025", "course": "Son Gual", "players": [
+                    {"name": "Joachim Bongard", "gross": 81, "net": 70},
+                    {"name": "Michael Price", "gross": 75, "net": 71},
+                    {"name": "Thomas Grigoleit", "gross": 82, "net": 71},
+                    {"name": "Markus Diesing", "gross": 86, "net": 74},
+                    {"name": "Andreas Schlawin", "gross": 91, "net": 75},
+                    {"name": "Dean Teuber", "gross": 88, "net": 76},
+                    {"name": "Chris Bauer", "gross": 92, "net": 76},
+                    {"name": "Ian Guest", "gross": 79, "net": 77},
+                    {"name": "Torsten Nitsche", "gross": 90, "net": 77},
+                    {"name": "Tim Holroyd", "gross": 79, "net": 79},
+                    {"name": "Ralf Schipper", "gross": 92, "net": 79},
+                    {"name": "Chris Hunt", "gross": 87, "net": 80},
+                    {"name": "Marc Daubach", "gross": 97, "net": 82},
+                    {"name": "Carsten Piwek", "gross": 95, "net": 83},
+                    {"name": "Dan Wise", "gross": 100, "net": 85},
+                    {"name": "Philipp Guest", "gross": 96, "net": 93}
+                ]}
+            }
+        };
+
+        // State
+        let currentStandingsType = 'net';
+
+        // Navigation
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                document.getElementById(btn.dataset.section).classList.add('active');
+            });
+        });
+
+        // Standings Toggle
+        document.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentStandingsType = btn.dataset.type;
+                renderStandings();
+            });
+        });
+
+        // Render Standings
+        function renderStandings() {
+            const standings = currentStandingsType === 'net' ? data.netStandings : data.grossStandings;
+            const tbody = document.querySelector('#standings-table tbody');
+            
+            tbody.innerHTML = standings.map(p => `
+                <tr>
+                    <td class="rank rank-${p.rank}">${p.rank}</td>
+                    <td class="player-name">${p.name}</td>
+                    <td class="stat">${p.rounds}</td>
+                    <td class="stat">${p.total}</td>
+                    <td class="stat avg">${p.avg.toFixed(1)}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Render Handicaps
+        function renderHandicaps() {
+            const grid = document.getElementById('handicap-grid');
+            grid.innerHTML = data.handicaps.map(h => `
+                <div class="handicap-item">
+                    <span class="handicap-name">${h.name}</span>
+                    <span class="handicap-value">${h.hcp.toFixed(1)}</span>
+                </div>
+            `).join('');
+        }
+
+        // Render Rounds
+        function renderRounds() {
+            const container = document.getElementById('rounds-container');
+            const roundNums = Object.keys(data.rounds).sort((a, b) => b - a); // Newest first
+            
+            container.innerHTML = roundNums.map(num => {
+                const round = data.rounds[num];
+                const winner = round.players[0];
+                
+                return `
+                    <div class="round-card">
+                        <div class="round-header" onclick="toggleRound(this)">
+                            <div class="round-info">
+                                <span class="round-number">Round ${num}</span>
+                                <div class="round-details">
+                                    <span class="round-course">${round.course}</span>
+                                    <span class="round-date"> &middot; ${round.date}</span>
+                                </div>
+                            </div>
+                            <span class="round-toggle">&#9660;</span>
+                        </div>
+                        <div class="round-content">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Player</th>
+                                        <th class="stat">Gross</th>
+                                        <th class="stat">Net</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${round.players.map((p, i) => `
+                                        <tr class="${i === 0 ? 'winner' : ''}">
+                                            <td class="player-name">${p.name}</td>
+                                            <td class="stat">${p.gross}</td>
+                                            <td class="stat">${p.net}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleRound(header) {
+            header.parentElement.classList.toggle('open');
+        }
+
+        // Initialize
+        renderStandings();
+        renderHandicaps();
+        renderRounds();
+    </script>
+</body>
+</html>
